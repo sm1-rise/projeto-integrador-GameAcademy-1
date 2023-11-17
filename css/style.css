@@ -1,0 +1,130 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kanit:wght@200&display=swap');
+
+  @import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap');
+
+
+
+
+*{
+    box-sizing: border-box;
+    /* garante que o elmento ocupa no maximo o espaço definido */
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #110c4c;
+    font-family: 'Kdam Thmor Pro', sans-serif;
+}
+
+header .logo {
+background-color: #050033;
+text-align: left;
+
+}
+
+header .menu {
+background-color: #050033;
+display: flex; /* ativar flexbox */
+justify-content: right; /* centralizar na horizontal*/
+}
+
+header.menu.img {
+    justify-content: center;
+}
+
+header .menu ul {
+    margin: 0; /* margin = espaçamento externo*/
+    list-style: none; /* tirar marcador da lista */
+}
+
+header .menu ul li {
+    display: inline-block;
+    padding: 10px 15px; /* padding = espaçamento interno | 10px pra cima 15px para as laterais */
+}
+
+header .menu ul li a {
+    text-decoration: none; /* tirar sublinhado*/
+color: #FDFDFD; /* mudar a cor do texto*/
+}
+
+
+main section.jogos h2 {
+    color:#fffefd;
+    text-align: start;
+    font-weight: bold;
+    padding-left: 20px;
+    font-size: 40px;
+    
+    
+}
+
+.lista-jogos {
+    display: flex; /*ativando flexbox */
+    justify-content: space-evenly; /* espaço entre os elementos na horizontal */
+align-items: flex-start; /*todos os elementos alinhado no topo */
+flex-wrap: wrap;
+}
+
+.lista-jogos article {
+    
+    width:345px; /* largura do article */
+    text-align: center; /*centralizando tudo no article */
+    margin-bottom: 60px;
+
+}
+
+.lista-jogos  article .thumb {
+    width:100%; /*imagem vai ocupar 100% de largura no article */
+    height: 500px; /* altura da thumb */
+    background-color: orange; /* cor de fundo somente para teste */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.lista-jogos article h3 {
+    font-size: 26px;
+    color:#fff;
+    font-size: 40px;
+}
+
+.lista-jogos article h4{
+    color:#fff;
+   font-weight: 100;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px 25px;
+    text-decoration: none; /* tirar sublinhado */
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+container {
+background-color:#FDFDFD;
+height: 400px;
+
+}
+
+
+
+
+footer {
+    background-color: #050033;
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+footer .container {
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px 0;
+}
+
+footer p {
+    padding: 0 15px;
+}
