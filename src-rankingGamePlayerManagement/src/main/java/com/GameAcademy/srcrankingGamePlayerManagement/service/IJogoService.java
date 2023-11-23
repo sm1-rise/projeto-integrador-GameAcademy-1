@@ -10,7 +10,7 @@ public interface IJogoService {
 
     public Jogo criarJogo(Jogo novoJogo);
     public Jogo atualizar(Jogo jogo) throws JsonProcessingException;
-    public List<Jogo>buscarTodos();
-    public Optional<Jogo> buscarPeloId(Long id);
-    public void excluir(Long id);
+    public List<Jogo>buscarTodos() throws JsonProcessingException;
+    public Optional<Jogo> buscarPeloId(Long id) throws JsonProcessingException;
+    public void excluir(Long id) throws JsonProcessingException;
 }

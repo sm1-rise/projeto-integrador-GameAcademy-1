@@ -13,6 +13,6 @@ import javax.validation.constraints.NotNull;
 public class JogoErro {
     @NotNull(message = "Atributo codigoErro é obrigatório")
     private String codigoErro;
-    @NotNull(message = "Atributo mensagem é obrigat")
+    @NotNull(message = "Atributo mensagem é obrigatório")
     private String mensagem;
 }

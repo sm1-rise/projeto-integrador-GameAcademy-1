@@ -37,23 +37,41 @@ public class JogoServiceImpl implements IJogoService {
         }
     }
 
-
     @Override
-    public List<Jogo> buscarTodos() {
-        return jogoRepository.findAll();
+    public List<Jogo> buscarTodos() throws JsonProcessingException {
+        try {
+            return jogoRepository.findAll();
+        }catch (FeignException e){
+            var respostaJogo = new ObjectMapper().readValue(e.contentUTF8(), JogoErro.class);
+            throw  new JogoCustomException(respostaJogo.getCodigoErro(),respostaJogo.getMensagem(),e.status());
+        }
     }
 
     @Override
-    public Optional<Jogo> buscarPeloId(Long id) {
-        if(jogoRepository.existsById(id))
-            return  jogoRepository.findById(id);
-        else return  null;
+    public Optional<Jogo> buscarPeloId(Long id) throws JsonProcessingException {
+        try {
+            if(jogoRepository.existsById(id))
+                return  jogoRepository.findById(id);
+            else
+                throw new JogoCustomException();
+        } catch (FeignException e){
+            var respostaJogo = new ObjectMapper().readValue(e.contentUTF8(), JogoErro.class);
+            throw  new JogoCustomException(respostaJogo.getCodigoErro(),respostaJogo.getMensagem(),e.status());
+        }
     }
 
     @Override
-    public void excluir(Long id) {
-        if(jogoRepository.existsById(id))
-            jogoRepository.deleteById(id);
+    public void excluir(Long id) throws JsonProcessingException {
+        try {
+            if(jogoRepository.existsById(id))
+                jogoRepository.deleteById(id);
+            else
+                throw new JogoCustomException();
+        } catch (FeignException e) {
+            var respostaJogo = new ObjectMapper().readValue(e.contentUTF8(), JogoErro.class);
+            throw  new JogoCustomException(respostaJogo.getCodigoErro(),respostaJogo.getMensagem(),e.status());
+        }
+
     }
 }
 

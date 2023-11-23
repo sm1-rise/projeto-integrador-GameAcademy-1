@@ -20,13 +20,13 @@ public class JogoController {
     private JogoServiceImpl jogoServiceImpl;
 
     @GetMapping("/jogos")
-    public ResponseEntity<List<Jogo>> getAll() {
+    public ResponseEntity<List<Jogo>> getAll() throws JsonProcessingException {
         var lista = jogoServiceImpl.buscarTodos();
         return ResponseEntity.ok(lista);
     }
 
     @GetMapping("/jogos/{id}")
-    public ResponseEntity<Optional<Jogo>> getById(@PathVariable("id") Long id) {
+    public ResponseEntity<Optional<Jogo>> getById(@PathVariable("id") Long id) throws JsonProcessingException {
         var jogo = jogoServiceImpl.buscarPeloId(id);
         return ResponseEntity.ok(jogo);
     }
@@ -52,8 +52,8 @@ public class JogoController {
     }
 
     @DeleteMapping("/jogos/{id}")
-    public  ResponseEntity delete(@PathVariable("id") Long id){
-        jogoServiceImpl.excluir(id);
+    public  ResponseEntity delete(@PathVariable("id") Long id) throws JsonProcessingException {
+        jogoServiceImpl. excluir(id);
         return ResponseEntity.noContent().build();
     }
 }
