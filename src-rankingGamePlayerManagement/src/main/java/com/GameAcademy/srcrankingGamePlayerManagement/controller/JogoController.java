@@ -2,6 +2,7 @@ package com.GameAcademy.srcrankingGamePlayerManagement.controller;
 
 import com.GameAcademy.srcrankingGamePlayerManagement.entities.Jogo;
 import com.GameAcademy.srcrankingGamePlayerManagement.service.JogoServiceImpl;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -40,7 +41,7 @@ public class JogoController {
     }
 
     @PutMapping("/jogos/{id}")
-    public ResponseEntity<Jogo>update(@PathVariable("id") Long id, @RequestBody Jogo jogoAtualizado){
+    public ResponseEntity<Jogo>update(@PathVariable("id") Long id, @RequestBody Jogo jogoAtualizado) throws JsonProcessingException {
         var jogo = jogoServiceImpl.atualizar(jogoAtualizado);
         if(jogo.getId() != null ){
             return ResponseEntity.ok(jogo);

@@ -32,7 +32,7 @@ public class Jogo {
     @Column(name = "website", unique = true, nullable = true)
     private String website;
 
-    @OneToMany(mappedBy = "jogo", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "jogo", cascade = CascadeType.MERGE)
     private Set<Ranking> ranking;
 }
 
