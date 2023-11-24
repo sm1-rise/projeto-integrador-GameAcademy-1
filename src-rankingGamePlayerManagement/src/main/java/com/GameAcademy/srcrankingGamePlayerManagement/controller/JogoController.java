@@ -26,7 +26,7 @@ public class JogoController {
     }
 
     @GetMapping("/jogos/{id}")
-    public ResponseEntity<Optional<Jogo>> getById(@PathVariable("id") Long id) throws JsonProcessingException {
+    public ResponseEntity<Jogo> getById(@PathVariable("id") Long id) throws JsonProcessingException {
         var jogo = jogoServiceImpl.buscarPeloId(id);
         return ResponseEntity.ok(jogo);
     }
@@ -53,7 +53,7 @@ public class JogoController {
 
     @DeleteMapping("/jogos/{id}")
     public  ResponseEntity delete(@PathVariable("id") Long id) throws JsonProcessingException {
-        jogoServiceImpl. excluir(id);
+        jogoServiceImpl.excluir(id);
         return ResponseEntity.noContent().build();
     }
 }

@@ -6,14 +6,12 @@ import com.GameAcademy.srcrankingGamePlayerManagement.entities.JogoErro;
 import com.GameAcademy.srcrankingGamePlayerManagement.exception.JogoCustomException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import feign.FeignException;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.logging.Logger;
 
 @Service
 public class JogoServiceImpl implements IJogoService {
@@ -28,12 +26,10 @@ public class JogoServiceImpl implements IJogoService {
     @Override
     public Jogo atualizar(Jogo jogo) throws JsonProcessingException {
         try {
-            if (jogoRepository.existsById(jogo.getId()))
-                return jogoRepository.save(jogo);
-            else throw new JogoCustomException();
-        }catch (FeignException e){
+            return jogoRepository.save(jogo);
+        } catch (FeignException e) {
             var respostaJogo = new ObjectMapper().readValue(e.contentUTF8(), JogoErro.class);
-            throw  new JogoCustomException(respostaJogo.getCodigoErro(),respostaJogo.getMensagem(),e.status());
+            throw new JogoCustomException(respostaJogo.getCodigoErro(), respostaJogo.getMensagem(), e.status());
         }
     }
 
@@ -48,16 +44,11 @@ public class JogoServiceImpl implements IJogoService {
     }
 
     @Override
-    public Optional<Jogo> buscarPeloId(Long id) throws JsonProcessingException {
-        try {
-            if(jogoRepository.existsById(id))
-                return  jogoRepository.findById(id);
-            else
-                throw new JogoCustomException();
-        } catch (FeignException e){
-            var respostaJogo = new ObjectMapper().readValue(e.contentUTF8(), JogoErro.class);
-            throw  new JogoCustomException(respostaJogo.getCodigoErro(),respostaJogo.getMensagem(),e.status());
-        }
+    public Jogo buscarPeloId(Long id) throws JsonProcessingException {
+        var resposta = jogoRepository.findById(id);
+        return resposta.orElseThrow(
+                () -> new JogoCustomException(HttpStatus.NOT_FOUND.getReasonPhrase(), "Jogo com o id: " + id + " não encontrado.",HttpStatus.NOT_FOUND.value())
+        );
     }
 
     @Override
