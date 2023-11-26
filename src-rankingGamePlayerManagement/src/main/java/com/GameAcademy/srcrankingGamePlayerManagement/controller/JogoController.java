@@ -4,13 +4,15 @@ import com.GameAcademy.srcrankingGamePlayerManagement.entities.Jogo;
 import com.GameAcademy.srcrankingGamePlayerManagement.service.JogoServiceImpl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.swing.table.TableRowSorter;
+import javax.validation.Valid;
 import java.net.http.HttpResponse;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 
@@ -26,29 +28,21 @@ public class JogoController {
     }
 
     @GetMapping("/jogos/{id}")
-    public ResponseEntity<Jogo> getById(@PathVariable("id") Long id) throws JsonProcessingException {
-        var jogo = jogoServiceImpl.buscarPeloId(id);
-        return ResponseEntity.ok(jogo);
+    public ResponseEntity<Jogo>getById(@PathVariable("id") Long id) throws JsonProcessingException {
+            var jogoEncontrado = jogoServiceImpl.buscarPeloId(id);
+            return ResponseEntity.ok(jogoEncontrado);
     }
 
     @PostMapping("/jogos")
-    public ResponseEntity<Jogo>create(@RequestBody Jogo jogoCriado){
+    public ResponseEntity<Jogo>create(@Valid @RequestBody Jogo jogoCriado) throws JsonProcessingException {
         var jogo = jogoServiceImpl.criarJogo(jogoCriado);
-        if(jogo != null)
-            return ResponseEntity.status(201).body(jogo);
-        else
-            return ResponseEntity.badRequest().build();
+        return ResponseEntity.status(201).body(jogo);
     }
 
     @PutMapping("/jogos/{id}")
     public ResponseEntity<Jogo>update(@PathVariable("id") Long id, @RequestBody Jogo jogoAtualizado) throws JsonProcessingException {
         var jogo = jogoServiceImpl.atualizar(jogoAtualizado);
-        if(jogo.getId() != null ){
-            return ResponseEntity.ok(jogo);
-        }
-        else{
-            return ResponseEntity.badRequest().build();
-        }
+        return ResponseEntity.ok(jogo);
     }
 
     @DeleteMapping("/jogos/{id}")
