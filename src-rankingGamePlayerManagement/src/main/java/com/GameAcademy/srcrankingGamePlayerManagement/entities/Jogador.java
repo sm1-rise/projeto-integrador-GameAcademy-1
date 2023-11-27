@@ -3,11 +3,13 @@ package com.GameAcademy.srcrankingGamePlayerManagement.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Set;
 
+@NoArgsConstructor
 @AllArgsConstructor
 @Data
 @Entity
@@ -27,7 +29,7 @@ public class Jogador {
     @Column(name = "nickname", nullable = false, length = 70)
     private String nickname;
 
-    @OneToMany(mappedBy = "jogador", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "jogador", cascade = CascadeType.MERGE)
     private Set<Ranking> ranking;
 
 }
