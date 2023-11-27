@@ -1,9 +1,12 @@
 package com.GameAcademy.srcrankingGamePlayerManagement.controller;
 
 import com.GameAcademy.srcrankingGamePlayerManagement.entities.Jogo;
+import com.GameAcademy.srcrankingGamePlayerManagement.entities.JogoErro;
+import com.GameAcademy.srcrankingGamePlayerManagement.exception.JogoCustomException;
 import com.GameAcademy.srcrankingGamePlayerManagement.service.JogoServiceImpl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -40,11 +43,12 @@ public class JogoController {
     }
 
     @PutMapping("/jogos/{id}")
-    public ResponseEntity<Jogo>update(@PathVariable("id") Long id, @RequestBody Jogo jogoAtualizado) throws JsonProcessingException {
-        var jogo = jogoServiceImpl.atualizar(jogoAtualizado);
-        return ResponseEntity.ok(jogo);
+    public ResponseEntity<Jogo>update(@PathVariable("id") Long id, @RequestBody Jogo jogo) throws JsonProcessingException {
+        if (jogo.getId().equals(id)) {
+            return ResponseEntity.ok(jogo);
+        }
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
-
     @DeleteMapping("/jogos/{id}")
     public  ResponseEntity delete(@PathVariable("id") Long id) throws JsonProcessingException {
         jogoServiceImpl.excluir(id);

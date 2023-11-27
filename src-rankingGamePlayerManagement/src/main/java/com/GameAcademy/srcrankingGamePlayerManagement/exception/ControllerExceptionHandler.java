@@ -17,12 +17,6 @@ import java.util.NoSuchElementException;
 @RestControllerAdvice
 public class ControllerExceptionHandler {
 
-    @ExceptionHandler(JogoCustomException.class)
-    public ResponseEntity<JogoErro> handleCatalogoCustomException(JogoCustomException e) {
-        JogoErro jogoErro = new JogoErro(e.getCodigoErro(), e.getMensagem());
-        return ResponseEntity.status(e.getStatus()).body(jogoErro);
-    }
-
     @ExceptionHandler(DataIntegrityViolationException.class)
     public ResponseEntity<JogoErro> handleDataIntegrationViolationException(DataIntegrityViolationException e) {
         JogoErro jogoErro = new JogoErro(HttpStatus.BAD_REQUEST.getReasonPhrase(), e.getMessage());
@@ -47,9 +41,18 @@ public class ControllerExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(jogoErro);
     }
 
- // @ExceptionHandler(Exception.class)
- // public ResponseEntity<JogoErro> handlerUnexpected(Exception e) {
- //     JogoErro jogoErro = new JogoErro(HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase(), "Erro inesperado");
- //     return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(jogoErro);
- // }
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<JogoErro> handlerUnexpected(Exception e) {
+        JogoErro jogoErro = new JogoErro(HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase(), "Erro inesperado");
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(jogoErro);
+    }
 }
+
+
+/*@ExceptionHandler(JogoCustomException.class)
+    public ResponseEntity<JogoErro> handleCatalogoCustomException(JogoCustomException e) {
+        JogoErro jogoErro = new JogoErro(e.getCodigoErro(), e.getMensagem());
+        return ResponseEntity.status(e.getStatus()).body(jogoErro);
+    }
+
+     */
