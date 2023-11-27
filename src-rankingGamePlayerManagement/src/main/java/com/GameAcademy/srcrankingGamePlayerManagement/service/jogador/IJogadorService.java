@@ -1,4 +1,4 @@
-package com.GameAcademy.srcrankingGamePlayerManagement.service;
+package com.GameAcademy.srcrankingGamePlayerManagement.service.jogador;
 
 import com.GameAcademy.srcrankingGamePlayerManagement.entities.Jogador;
 import com.GameAcademy.srcrankingGamePlayerManagement.entities.Jogo;
@@ -13,5 +13,4 @@ public interface IJogadorService {
     public Jogador atualizar(Long id, Jogador jogo) throws JsonProcessingException;
     public List<Jogador>buscarTodos() throws JsonProcessingException;
     public Jogador buscarPeloId(Long id)throws JsonProcessingException;
-    public void excluir(Long id) throws JsonProcessingException;
 }
