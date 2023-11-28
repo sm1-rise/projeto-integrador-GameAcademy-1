@@ -1,5 +1,6 @@
 package com.GameAcademy.srcrankingGamePlayerManagement.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -32,7 +33,8 @@ public class Jogo {
     @Column(name = "website", unique = true, nullable = true)
     private String website;
 
-    @OneToMany(mappedBy = "jogo", cascade = CascadeType.MERGE)
+    @JsonIgnore
+    @OneToMany(mappedBy = "jogo")
     private Set<Ranking> ranking;
 }
 
