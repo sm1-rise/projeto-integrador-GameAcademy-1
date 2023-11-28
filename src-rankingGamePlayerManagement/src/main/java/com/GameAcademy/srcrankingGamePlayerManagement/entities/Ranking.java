@@ -19,23 +19,18 @@ import java.util.Date;
 @Table (name = "ranking")
 public class Ranking {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    @NotNull
     private Long id;
 
     @Column(name = "pontos", nullable = false)
     private Integer pontos;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "jogador_id")
     private  Jogador jogador;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "jogo_id")
     private Jogo jogo;
-
-    @Column(name = "createdAt")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createdAt;
 }

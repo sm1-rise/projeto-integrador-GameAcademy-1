@@ -40,9 +40,9 @@ public class ControllerExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(mensagemErro);
     }
 
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<MensagemErro> handlerUnexpected(Exception e) {
-        MensagemErro mensagemErro = new MensagemErro(HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase(), "Erro inesperado");
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(mensagemErro);
-    }
+   // @ExceptionHandler(Exception.class)
+   // public ResponseEntity<MensagemErro> handlerUnexpected(Exception e) {
+   //     MensagemErro mensagemErro = new MensagemErro(HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase(), "Erro inesperado");
+   //     return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(mensagemErro);
+   // }
 }
