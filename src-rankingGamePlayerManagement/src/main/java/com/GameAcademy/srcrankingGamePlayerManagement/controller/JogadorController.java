@@ -36,9 +36,6 @@ public class JogadorController {
 
     @PutMapping("/jogadores/{id}")
     public ResponseEntity<Jogador>update(@PathVariable("id") Long id, @RequestBody Jogador jogador) throws JsonProcessingException {
-        if (jogador.getId().equals(id)) {
-            return ResponseEntity.ok(jogador);
-        }
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+           return ResponseEntity.ok(jogadorServiceImpl.atualizar(id,jogador));
     }
 }

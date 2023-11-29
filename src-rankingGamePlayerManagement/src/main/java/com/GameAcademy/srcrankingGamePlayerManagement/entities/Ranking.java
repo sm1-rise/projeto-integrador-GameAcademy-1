@@ -26,11 +26,11 @@ public class Ranking {
     @Column(name = "pontos", nullable = false)
     private Integer pontos;
 
-    @ManyToOne
+    @ManyToOne (cascade = CascadeType.MERGE)
     @JoinColumn(name = "jogador_id")
     private  Jogador jogador;
 
-    @ManyToOne
+    @ManyToOne (cascade = CascadeType.MERGE)
     @JoinColumn(name = "jogo_id")
     private Jogo jogo;
 }

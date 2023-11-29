@@ -23,7 +23,7 @@ public class RankingController {
 
     @GetMapping("/ranking/jogador/{id}")
     public ResponseEntity<List<Ranking>> getJogoRankingById(@PathVariable("id") Long id) throws JsonProcessingException {
-        var lista = rankingService.getAllRankingJogoId(id);
+        var lista = rankingService.getAllRankingPlayerId(id);
         return ResponseEntity.ok(lista);
     }
 
@@ -42,7 +42,6 @@ public class RankingController {
             e.printStackTrace();
             return null;
         }
-
     }
 
     @PostMapping("/ranking")

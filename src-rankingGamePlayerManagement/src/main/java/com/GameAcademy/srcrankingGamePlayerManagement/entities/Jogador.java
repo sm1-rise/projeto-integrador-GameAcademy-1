@@ -31,7 +31,7 @@ public class Jogador {
     private String nickname;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "jogador")
+    @OneToMany(mappedBy = "jogador", cascade = CascadeType.MERGE)
     private Set<Ranking> ranking;
 
 }

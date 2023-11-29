@@ -34,7 +34,7 @@ public class Jogo {
     private String website;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "jogo")
+    @OneToMany(mappedBy = "jogo", cascade = CascadeType.MERGE)
     private Set<Ranking> ranking;
 }
 
