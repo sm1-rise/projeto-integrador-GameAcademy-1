@@ -17,7 +17,8 @@ import java.util.Date;
 @NoArgsConstructor
 @Entity
 @Table (name = "ranking")
-public class Ranking {
+public class Ranking  {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -33,4 +34,5 @@ public class Ranking {
     @ManyToOne (cascade = CascadeType.MERGE)
     @JoinColumn(name = "jogo_id")
     private Jogo jogo;
+
 }
