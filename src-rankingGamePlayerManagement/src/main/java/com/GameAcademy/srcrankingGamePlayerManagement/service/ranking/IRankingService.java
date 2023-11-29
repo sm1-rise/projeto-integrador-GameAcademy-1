@@ -8,5 +8,9 @@ import java.util.List;
 
 public interface IRankingService {
 
-    public Ranking create(Ranking ranking);
+    public Ranking criarRanking(Ranking ranking);
+
+    public List<Ranking> listarTodosRankingJogador(Long id);
+
+    public List<Ranking> listarTodosJogosRanking(Long id);
 }
