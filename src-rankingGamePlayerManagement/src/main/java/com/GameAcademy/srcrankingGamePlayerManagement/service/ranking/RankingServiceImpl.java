@@ -40,7 +40,6 @@ public class RankingServiceImpl implements IRankingService{
 
         List<Ranking> rankingList  = new ArrayList<>();
         var listaRanking = rankingRepository.findAll();
-
         listaRanking.forEach((rankingJogador) -> {
                     if(rankingJogador.getJogador().getId().equals(id)){
                         rankingList.add(rankingJogador);
