@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -23,15 +24,14 @@ public class RankingServiceImpl implements IRankingService{
 
     @Override
     public List<Ranking> listarTodosRankingJogador(Long id) {
-        List<Ranking> rankingList  = new ArrayList<>();
+        List<Ranking> rankingList = new ArrayList<>();
         var listaRanking = rankingRepository.findAll();
-
         listaRanking.forEach((rankingJogador) -> {
-                    if(rankingJogador.getJogador().getId().equals(id)){
-                        rankingList.add(rankingJogador);
-                    }
-                }
-        );
+            if (rankingJogador.getJogador().getId().equals(id)) {
+                rankingList.add(rankingJogador);
+            }
+        });
+        Collections.sort(rankingList, Comparator.comparingInt(Ranking::getPontos).reversed());
         return rankingList;
     }
 
@@ -45,6 +45,7 @@ public class RankingServiceImpl implements IRankingService{
                     }
                 }
         );
+        Collections.sort(rankingList, Comparator.comparingInt(Ranking::getPontos).reversed());
         return rankingList;
     }
 
