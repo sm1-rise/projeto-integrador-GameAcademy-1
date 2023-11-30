@@ -30,6 +30,9 @@ public class Jogador {
     @Column(name = "nickname", nullable = false, length = 70)
     private String nickname;
 
+    @Column(name = "imagem", nullable = false, length = 2083)
+    private String imagem;
+
     @JsonIgnore
     @OneToMany(mappedBy = "jogador", cascade = CascadeType.MERGE)
     private Set<Ranking> ranking;

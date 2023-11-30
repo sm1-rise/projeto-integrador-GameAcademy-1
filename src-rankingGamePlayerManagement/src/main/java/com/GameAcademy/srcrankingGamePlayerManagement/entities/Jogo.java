@@ -33,6 +33,12 @@ public class Jogo {
     @Column(name = "website", unique = true, nullable = true)
     private String website;
 
+    @Column(name = "imagem", nullable = false,  length = 2083)
+    private String imagem;
+
+    @Column(name = "descricao", nullable = false, length = 300)
+    private String descricao;
+
     @JsonIgnore
     @OneToMany(mappedBy = "jogo", cascade = CascadeType.MERGE)
     private Set<Ranking> ranking;
