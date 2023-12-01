@@ -1,0 +1,13 @@
+package com.GameAcademy.srcrankingGamePlayerManagement;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class SrcRankingGamePlayerManagementApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}

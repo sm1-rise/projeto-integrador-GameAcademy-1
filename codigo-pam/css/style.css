@@ -1,0 +1,150 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kanit:wght@200&display=swap');
+
+  @import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap');
+
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+  }
+
+  body{
+    height: 100vh;
+    background-color: #081141;
+  }
+
+  nav.menu-lateral{
+    width: 300px;
+    height: 100%;
+    background-color: #050033;
+    padding: 40px 10 40px 1%;
+    box-shadow: 3px 0 0 #040027;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    transition: .2s;
+  }
+
+
+ 
+  .btn-expandir{
+    width: 100%;
+    padding-left: 18px;
+  }
+
+  .btn-expandir .img{
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    
+  }
+
+  ul{
+    height: 100%;
+    list-style-type: none;
+
+  }
+
+  ul li.item-menu{
+    transition: .2s;
+    padding:  0px 20px;
+
+  }
+  
+ul li.item-menu:hover{
+    background: gray;
+}
+
+  ul li.item-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 20px 4%;
+    display: flex;
+    margin-bottom: 20px;
+    line-height: 40px;
+  }
+
+  ul li.item-menu a .txt-link{
+    margin-left: 40px;
+  }
+
+  ul li.item-menu a .icon {
+    font-size: 40px;
+    margin-left: 10px;
+  }
+
+  /* pagina interna de jogos */
+ 
+.conteudo {
+    display: flex;
+    justify-content:center;
+    padding-left: 40px;
+    
+}
+
+
+  .conteudo h1{
+    color: white;
+    font-size: 30px;
+    padding: 40px;
+    margin-top: 50px;
+    font-weight: bold;
+    
+  }
+
+  .conteudo h2{
+color: #31A6E8;
+text-transform:uppercase;
+padding: 25px;
+font-size: 20px;
+
+  }
+ 
+  .conteudo p{
+    color: white;
+    padding-left: 20px;
+  }
+    
+  
+
+  .conteudo ul li img{
+    width: auto;
+    height: 600px;
+    padding-left: 100px;
+    vertical-align:text-top;
+    margin-top: 70px;
+    margin-bottom:70px;
+  
+  }
+
+img{
+  border-radius: 10px;
+}
+
+
+  footer {
+    background-color: #050033;
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    
+}
+
+footer .container {
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    padding: 10px 0;
+}
+
+footer p {
+    padding: 0 15px;
+}

@@ -1,0 +1,184 @@
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+body{
+  height: 100vh;
+  background-color: #081141;
+}
+
+nav.menu-lateral{
+  width: 300px;
+  height: 100%;
+  background-color: #050033;
+  padding: 40px 10 40px 1%;
+  box-shadow: 3px 0 0 #040027;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  transition: .2s;
+}
+
+
+
+.btn-expandir{
+  width: 100%;
+  padding-left: 18px;
+}
+
+.btn-expandir .img{
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+ 
+}
+
+ul{
+  height: 100%;
+  list-style-type: none;
+
+}
+
+ul li.item-menu{
+  transition: .2s;
+  padding:  0px 20px;
+
+}
+
+ul li.item-menu:hover{
+  background: gray;
+}
+
+ul li.item-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 20px 4%;
+  display: flex;
+  margin-bottom: 20px;
+  line-height: 40px;
+}
+
+ul li.item-menu a .txt-link{
+  margin-left: 40px;
+}
+
+ul li.item-menu a .icon {
+  font-size: 40px;
+  margin-left: 10px;
+}
+
+
+ body  {
+  margin: 0%;
+
+}
+
+h1{ 
+  text-align: center;
+  color: #fff;
+  margin: 30px;
+  font-size: 55px;
+}
+
+.perfil ul li {
+ display: flex;
+ justify-content: flex-start;
+ padding-left: 409px;
+  padding-top: 10px;
+}
+
+.formula h4{
+  color: blue;
+}
+
+.formula {
+
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 1.3px;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
+  padding:  10px;
+  font-weight: bold;
+  text-align: left;
+  
+
+}
+
+.formula span {
+   text-align: left;
+  color: #fff;
+  margin: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode',
+
+}
+
+
+.carousel {
+  width: 90%;
+  overflow: hidden;
+  padding-left: 409px;
+  padding-top: 10px;
+  
+ 
+}
+.post {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-right: 10px;
+  transition: transform 0.5s ease;
+  border-radius: 10px;
+}
+.post img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+h2 {
+  font-size: 16px;
+  margin: 0;
+}
+.carousel-container {
+  display: flex;
+  transition: transform 0.5s ease;
+  padding: 100px;
+}
+.arrow {
+  position: absolute;
+  top:60%;
+  cursor: pointer;
+  transform: translateY(-50);
+  user-select: none;
+  font-size: 29px;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+  padding: 9px;
+  
+}
+.arrow:hover {
+  color: #4caf50;
+}
+
+.arrow .left {
+  left: 10;
+
+}
+
+.arrow.right {
+  right: 0;
+
+}
+ 
