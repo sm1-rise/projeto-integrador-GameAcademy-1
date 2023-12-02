@@ -1,4 +1,7 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kanit:wght@200&display=swap');
+
+  @import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap');
 *{
   margin: 0;
   padding: 0;
@@ -95,7 +98,7 @@ h1{
 }
 
 .formula h4{
-  color: blue;
+  color: #31A6E8;
 }
 
 .formula {
@@ -121,31 +124,34 @@ h1{
 
 }
 
-
+/* Carrosel */
 .carousel {
   width: 90%;
   overflow: hidden;
-  padding-left: 409px;
+  padding-left: 390px;
   padding-top: 10px;
-  
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
  
 }
+
+
 .post {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 20px;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-right: 10px;
+  padding: 10px;
+  background-color: #ADB3D6;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+  margin-right: 40px;
   transition: transform 0.5s ease;
   border-radius: 10px;
+  
 }
 .post img {
-  max-width: 100%;
+  max-width: 110%;
   height: auto;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 h2 {
   font-size: 16px;
@@ -154,26 +160,27 @@ h2 {
 .carousel-container {
   display: flex;
   transition: transform 0.5s ease;
-  padding: 100px;
+  padding: 90px;
 }
 .arrow {
   position: absolute;
-  top:60%;
+  top:70%;
   cursor: pointer;
   transform: translateY(-50);
   user-select: none;
   font-size: 29px;
   margin: 0 10px;
   transition: color 0.3s ease;
-  padding: 9px;
+  padding: 35px;
+  color: #ADB3D6;
   
 }
 .arrow:hover {
-  color: #4caf50;
+  color: bisque;
 }
 
 .arrow .left {
-  left: 10;
+  left: 0;
 
 }
 
@@ -181,4 +188,16 @@ h2 {
   right: 0;
 
 }
- 
+  /* Titulo "jOGOS:" */
+  .titulo {
+    top: 10%;
+    left: 10px;
+    padding-left: 409px;
+    padding-top: 40px;
+    font-size: 30px;
+    justify-content: left;
+    color: #31A6E8;
+    font-weight: bold;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode',
+
+  }
