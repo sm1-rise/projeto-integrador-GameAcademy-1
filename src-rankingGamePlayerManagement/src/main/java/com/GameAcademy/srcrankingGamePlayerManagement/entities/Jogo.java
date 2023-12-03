@@ -30,7 +30,7 @@ public class Jogo {
     @Column(name = "autor",  unique = true, nullable = false, length = 100)
     private String autor;
 
-    @Column(name = "website", unique = true, nullable = true)
+    @Column(name = "website", unique = true, nullable = true, length = 255)
     private String website;
 
     @Column(name = "imagem", nullable = false,  length = 2083)

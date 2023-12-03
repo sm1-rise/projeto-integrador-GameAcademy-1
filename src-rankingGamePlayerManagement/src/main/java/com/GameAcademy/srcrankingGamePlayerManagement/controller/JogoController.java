@@ -39,7 +39,8 @@ public class JogoController {
 
     @PutMapping("/jogos/{id}")
     public ResponseEntity<Jogo>update(@PathVariable("id") Long id, @RequestBody Jogo jogo) throws JsonProcessingException {
-            return ResponseEntity.ok(jogo);
+        var jogoAtualizado = jogoServiceImpl.atualizar(id,jogo);
+        return ResponseEntity.ok(jogo);
         }
     }
 

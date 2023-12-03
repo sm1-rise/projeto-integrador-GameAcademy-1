@@ -25,9 +25,10 @@ public class JogadorServiceImpl implements IJogadorService {
     public Jogador atualizar(Long id, Jogador jogador) throws JsonProcessingException {
        if(jogador.getId().equals(id)){
            var jogadorDb = jogadorRepository.findById(id);
-           jogadorDb.get().setEmail(jogador.getEmail());
-           jogadorDb.get().setNome(jogador.getNome());
-           jogadorDb.get().setNickname(jogador.getNickname());
+                jogadorDb.get().setNome(jogador.getNome());
+                jogadorDb.get().setEmail(jogador.getEmail());
+                jogadorDb.get().setNickname(jogador.getNickname());
+                jogadorDb.get().setImagem(jogador.getImagem());
            return jogadorRepository.save(jogadorDb.get());
        }
        else{
