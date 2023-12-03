@@ -23,14 +23,15 @@ public class Jogo {
     private Long id;
 
     @NotNull
-    @Column(name = "nome", unique = true, nullable = false, length = 100)
+    @Column(name = "nome", nullable = false, length = 100)
     private String nome;
 
     @NotNull
-    @Column(name = "autor",  unique = true, nullable = false, length = 100)
+    @Column(name = "autor", nullable = false, length = 100)
     private String autor;
 
-    @Column(name = "website", unique = true, nullable = true, length = 255)
+    @NotNull
+    @Column(name = "website", length = 255)
     private String website;
 
     @Column(name = "imagem", nullable = false,  length = 2083)

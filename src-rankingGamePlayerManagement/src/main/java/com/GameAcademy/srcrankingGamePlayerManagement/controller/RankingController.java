@@ -17,6 +17,12 @@ public class RankingController {
     @Autowired
     private RankingServiceImpl rankingService;
 
+    @GetMapping("/ranking")
+    public ResponseEntity<List<Ranking>> getAllranking(){
+        var lista = rankingService.listarRanking();
+        return ResponseEntity.ok(lista);
+    }
+
     @GetMapping("/ranking/jogador/{id}")
     public ResponseEntity<List<Ranking>> getJogadorRankingById(@PathVariable("id") Long id) throws JsonProcessingException {
         var lista = rankingService.listarTodosRankingJogador(id);

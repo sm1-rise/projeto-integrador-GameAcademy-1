@@ -13,4 +13,6 @@ public interface IRankingService {
     public List<Ranking> listarTodosRankingJogador(Long id);
 
     public List<Ranking> listarTodosJogosRanking(Long id);
+
+    public List<Ranking> listarRanking();
 }

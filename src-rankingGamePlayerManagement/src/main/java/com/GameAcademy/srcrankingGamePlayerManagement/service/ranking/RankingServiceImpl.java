@@ -49,6 +49,13 @@ public class RankingServiceImpl implements IRankingService{
         return rankingList;
     }
 
+    @Override
+    public List<Ranking> listarRanking(){
+        var ranking = rankingRepository.findAll();
+        Collections.sort(ranking, Comparator.comparingInt(Ranking::getPontos).reversed());
+        return ranking;
+    }
+
     public void delete(Long id){
         rankingRepository.deleteById(id);
     }
