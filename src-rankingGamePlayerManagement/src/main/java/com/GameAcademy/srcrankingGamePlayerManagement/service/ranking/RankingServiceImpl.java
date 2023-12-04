@@ -1,25 +1,46 @@
 package com.GameAcademy.srcrankingGamePlayerManagement.service.ranking;
 
+import com.GameAcademy.srcrankingGamePlayerManagement.dao.IJogadorRepositoryDAO;
+import com.GameAcademy.srcrankingGamePlayerManagement.dao.IJogoRepositoryDAO;
 import com.GameAcademy.srcrankingGamePlayerManagement.dao.IRankingRepositoryDAO;
 import com.GameAcademy.srcrankingGamePlayerManagement.entities.Ranking;
+import com.GameAcademy.srcrankingGamePlayerManagement.exception.CustomException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class RankingServiceImpl implements IRankingService{
 
     @Autowired
     public IRankingRepositoryDAO rankingRepository;
+    @Autowired
+    public IJogadorRepositoryDAO jogadorRepository;
+    @Autowired
+    public IJogoRepositoryDAO jogoRepositoryDAO;
 
     @Override
     public Ranking criarRanking(Ranking ranking) {
-        return rankingRepository.save(ranking);
+
+        var jogo = jogoRepositoryDAO.findById(ranking.getJogo().getId());
+        var jogador =  jogadorRepository.findById(ranking.getJogador().getId());
+
+        if(!jogador.isPresent()){
+            throw new CustomException(HttpStatus.BAD_REQUEST.getReasonPhrase(),"Jogador não encontrado!",400);
+        }
+
+        if(!jogo.isPresent()){
+            throw new CustomException(HttpStatus.BAD_REQUEST.getReasonPhrase(),"Jogo não encontrado!",400);
+        }
+
+        final Ranking rankingCriado = Ranking.builder()
+                .pontos(ranking.getPontos())
+                .jogador(jogador.get())
+                .jogo(jogo.get())
+                .createAt(ranking.getCreateAt()).build();
+        return rankingRepository.save(rankingCriado);
     }
 
     @Override

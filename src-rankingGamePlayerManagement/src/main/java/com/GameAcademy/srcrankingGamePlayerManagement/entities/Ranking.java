@@ -1,6 +1,7 @@
 package com.GameAcademy.srcrankingGamePlayerManagement.entities;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
@@ -11,6 +12,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
+
+@Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -30,12 +33,13 @@ public class Ranking  {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "createAt", nullable = false, updatable = false)
     private Date createAt;
+
     @ManyToOne (cascade = CascadeType.MERGE)
-    @JoinColumn(name = "jogador_id")
+    @JoinColumn(name = "jogador_id", nullable = false)
     private  Jogador jogador;
 
     @ManyToOne (cascade = CascadeType.MERGE)
-    @JoinColumn(name = "jogo_id")
+    @JoinColumn(name = "jogo_id", nullable = false)
     private Jogo jogo;
 
 

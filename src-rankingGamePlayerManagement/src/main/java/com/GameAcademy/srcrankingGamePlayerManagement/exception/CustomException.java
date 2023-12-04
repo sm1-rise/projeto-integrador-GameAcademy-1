@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class JogoCustomException extends RuntimeException{
+public class CustomException extends RuntimeException{
     private String codigoErro;
     private String mensagem;
     private Integer status;

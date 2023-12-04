@@ -2,19 +2,20 @@ package com.GameAcademy.srcrankingGamePlayerManagement.service.jogo;
 
 import com.GameAcademy.srcrankingGamePlayerManagement.entities.Jogo;
 import com.GameAcademy.srcrankingGamePlayerManagement.dao.IJogoRepositoryDAO;
-import com.GameAcademy.srcrankingGamePlayerManagement.exception.JogoCustomException;
+import com.GameAcademy.srcrankingGamePlayerManagement.exception.CustomException;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
-import java.util.Optional;
 
+
+@RequiredArgsConstructor
 @Service
 public class JogoServiceImpl implements IJogoService {
 
-    @Autowired
+
     private IJogoRepositoryDAO jogoRepository;
 
     @Override
@@ -33,7 +34,7 @@ public class JogoServiceImpl implements IJogoService {
                 jogoAtualizado.get().setDescricao(jogo.getDescricao());
             return jogoRepository.save(jogoAtualizado.get());
         }
-        throw new JogoCustomException(HttpStatus.BAD_REQUEST.getReasonPhrase(),"id do jogador e URL devem ser iguais",400);
+        throw new CustomException(HttpStatus.BAD_REQUEST.getReasonPhrase(),"id do jogador e URL devem ser iguais",400);
     }
 
     @Override
