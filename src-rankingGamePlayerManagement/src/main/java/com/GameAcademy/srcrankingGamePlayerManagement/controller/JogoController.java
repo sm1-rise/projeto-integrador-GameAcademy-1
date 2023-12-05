@@ -20,7 +20,7 @@ public class JogoController {
     private JogoServiceImpl jogoServiceImpl;
 
     @GetMapping("/jogos")
-    public ResponseEntity<List<Jogo>> getAll() throws JsonProcessingException {
+    public ResponseEntity<List<Jogo>> getAll()  {
         var lista = jogoServiceImpl.buscarTodos();
         return ResponseEntity.ok(lista);
     }

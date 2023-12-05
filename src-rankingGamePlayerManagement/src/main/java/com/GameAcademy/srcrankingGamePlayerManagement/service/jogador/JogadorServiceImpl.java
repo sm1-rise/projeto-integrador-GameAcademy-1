@@ -24,27 +24,13 @@ public class JogadorServiceImpl implements IJogadorService {
     @Override
     public Jogador atualizar(Long id, Jogador jogador) throws JsonProcessingException {
 
-
-
-        var jogoAtualizado = jogadorRepository.findById(jogador.getId());
-
         if(jogador.getId()  == null ){
             throw new CustomException(HttpStatus.BAD_REQUEST.getReasonPhrase(),"O id está nulo",400);
         }
-        if(jogador.getNome() == null){
-            throw new CustomException(HttpStatus.BAD_REQUEST.getReasonPhrase(),"O nome está nulo",400);
-        }
-        if(jogador.getEmail() == null){
-            throw new CustomException(HttpStatus.BAD_REQUEST.getReasonPhrase(),"O e-mail está nulo",400);
-        }
-        if(jogador.getNickname() == null){
-            throw new CustomException(HttpStatus.BAD_REQUEST.getReasonPhrase(),"O nickname está nulo",400);
-        }
-        if(jogador.getImagem() == null){
-            throw new CustomException(HttpStatus.BAD_REQUEST.getReasonPhrase(),"A imagem está nula",400);
-        }
 
-        if(jogoAtualizado.isPresent()){
+        var jogadorAtualizado = jogadorRepository.findById(jogador.getId());
+
+        if(jogadorAtualizado.isPresent()){
            return jogadorRepository.save(jogador);
        }
            throw new CustomException(HttpStatus.BAD_REQUEST.getReasonPhrase(),"Todos os campos devem ser preenchidos corretamente",400);
@@ -58,5 +44,11 @@ public class JogadorServiceImpl implements IJogadorService {
     @Override
     public Jogador buscarPeloId(Long id) throws JsonProcessingException {
         return jogadorRepository.findById(id).orElseThrow();
+    }
+
+    private void validacaoNulo(Object valor, String menssagemErro){
+        if(valor == null){
+            throw new CustomException(HttpStatus.BAD_REQUEST.getReasonPhrase(), menssagemErro, 400);
+        }
     }
 }
